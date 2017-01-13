@@ -1,0 +1,40 @@
+service: plots
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  stage: dev
+  region: eu-west-1
+  profile: production
+  memorySize: 128
+  timeout: 3
+  role: arn:aws:iam::391989337674:role/LambdaGenericRole
+  cfLogs: true
+
+functions:
+  getPlots:
+    handler: plots.index
+    name: getPlots
+    description: Return a list of all the plots
+    runtime: nodejs4.3
+    memorySize: 128
+    timeout: 3
+    environment:
+          DB_NAME: plots
+    events:
+          - http:
+              path: plots
+              method: get
+              cors: true
+              authorizer:
+                arn: arn:aws:cognito-idp:eu-west-1:391989337674:userpool/eu-west-1_5MHtkIKtT
+    vpc:
+          securityGroupIds:
+            - sg-9f6c0af9
+          subnetIds:
+            - subnet-16dd8560
+            - subnet-2b78585d
+            - subnet-a16d05f9
+            - subnet-04a4c75c
+            - subnet-e880a68c
+            - subnet-07052a63

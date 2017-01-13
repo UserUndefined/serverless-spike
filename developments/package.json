@@ -1,0 +1,7 @@
+{
+  "name": "serverless-spike",
+  "version": "0.0.1",
+  "dependencies": {
+    "moment": "^2.17.1"
+  }
+}
