@@ -54,6 +54,8 @@ functions:
               path: developments
               method: get
               cors: true
+              authorizer:
+                arn: arn:aws:cognito-idp:eu-west-1:391989337674:userpool/eu-west-1_5MHtkIKtT
     vpc:
           securityGroupIds:
             - sg-9f6c0af9
