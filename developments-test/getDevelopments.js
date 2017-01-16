@@ -5,11 +5,9 @@ var moment = require('moment');
 module.exports.index = function(event, context, callback){
   const response = {
     statusCode: 200,
-    headers: {
-        "Access-Control-Allow-Origin" : "*",
-        "Access-Control-Allow-Headers": "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With, Accept",
-        "Access-Control-Allow-Methods": "*"
-    },
+//    headers: {
+//        "Access-Control-Allow-Origin" : "*" // Required for CORS support to work
+//    },
     body: JSON.stringify([
             {
                 name: 'Example House',

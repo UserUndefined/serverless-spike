@@ -18,10 +18,16 @@ npm install
 ```
 * Create an AWS account with VPC, Roles, Cognito and Security Groups all setup and ready to go
 
+CREATE A NEW SERVICE
+--------------------
+```javascript
+serverless create --template aws-nodejs --name [SERVICE_NAME]
+```
+
 TESTING
 -------
 ```javascript
-serverless invoke -f index -l
+serverless invoke local --f functionName -l
 ```
 
 DEPLOY
@@ -33,5 +39,5 @@ serverless deploy -v
 TEAR DOWN (removes everything)
 ----------
 ```javascript
-serverless remove
+serverless remove -v
 ```

@@ -10,6 +10,7 @@ provider:
   timeout: 3
   role: arn:aws:iam::391989337674:role/LambdaGenericRole
   cfLogs: true
+  deploymentBucket: com.serverless.${self:provider.region}.deploys
 
 functions:
   getDevelopments:
@@ -25,17 +26,9 @@ functions:
           - http:
               path: developments
               method: get
+              cors: true
               authorizer:
                 arn: arn:aws:cognito-idp:eu-west-1:391989337674:userpool/eu-west-1_5MHtkIKtT
-              cors:
-                origins:
-                  - '*'
-                headers:
-                  - Content-Type
-                  - X-Amz-Date
-                  - Authorization
-                  - X-Api-Key
-                  - X-Amz-Security-Token
     vpc:
           securityGroupIds:
             - sg-9f6c0af9
